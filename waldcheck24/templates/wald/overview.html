@@ -4,9 +4,8 @@
 
 {% block content %}
 {% for wald in waelder %}
-<<<<<<< HEAD
-=======
-<a href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
->>>>>>> af785c46ee320dd5d3a6bd07df911ca6a680c450
+	<p class="text-center">
+		<a href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
+	</p>
 {% endfor %}
 {% endblock %}
