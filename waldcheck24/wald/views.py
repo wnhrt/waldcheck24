@@ -18,5 +18,5 @@ def details(wald_id):
 	return render_template('wald/details.html', wald=wald)
 
 @bp_wald.route('/create')
-def overview():
+def create():
 	return render_template('wald/create.html')
