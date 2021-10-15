@@ -3,9 +3,19 @@
 {% block title %}Überblick{% endblock %}
 
 {% block content %}
+<div class="container">
+<h2 class="m-3 text-center">Übersicht</h2>
+<table class="table">
 {% for wald in waelder %}
-	<p class="text-center">
-		<a href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
-	</p>
+	<tr>
+		<td>
+			<p class="text-center">
+				<a href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
+			</p>
+		</td>
+	</tr>
 {% endfor %}
+</table>
+
+</div>
 {% endblock %}
