@@ -1,8 +1,7 @@
-from flask import Blueprint
-from flask.helpers import url_for
+from flask import Blueprint, render_template
 
 bp_frontend = Blueprint('frontend', __name__)
 
 @bp_frontend.route('/')
 def index():
-	return url_for('index.html')
+	return render_template('index.html')
