@@ -26,7 +26,6 @@ def create():
 			forstung = request.form.get('forstung')
 			lokation = request.form.get('lokation')
 			name = request.form.get('name')
-			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
 
 			if not flaeche:
 				flash('bitte flache eingeben', 'error')
@@ -40,6 +39,7 @@ def create():
 			if not name:
 				flash('bitte name eingeben', 'error')
 
+			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
 			db.session.add(neuer_wald_eintrag)
 			db.session.commit()
 			return redirect(url_for('wald.overview'))
