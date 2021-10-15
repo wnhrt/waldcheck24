@@ -1,1 +1,1 @@
-from app import create_app
+from waldcheck24.app import create_app
