@@ -13,7 +13,7 @@ def create_app():
 	app.register_blueprint(bp_frontend)
 
 	from .database_init import DatabaseFiller
-	DatabaseFiller(db)
+	#DatabaseFiller(db)
 
 	from .wald import bp_wald
 	app.register_blueprint(bp_wald, url_prefix='/wald')
