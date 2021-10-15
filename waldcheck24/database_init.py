@@ -14,8 +14,11 @@ class DatabaseFiller:
 		for x in range(5):
 			wald = Wald()
 			wald.name = self.faker.name()
-			wald.wald_id = x
-			db.session.commit()
+			wald.flaeche = 50
+			wald.lokation = 'abc'
+			wald.forstung = True
+			db.session.add(wald)
+		db.session.commit()
 
 
 
