@@ -9,7 +9,6 @@ def create_app():
 
 	db.init_app(app)
 	
-	
 	from .frontend import bp_frontend
 	app.register_blueprint(bp_frontend)
 
