@@ -16,7 +16,7 @@ def overview():
 def details(wald_id):
 	wald = None
 	# TODO
-	# wald = db.get_by_id(wald_id)
+	wald = Wald.query.get(wald_id)
 	return render_template('wald/details.html', wald=wald)
 
 @bp_wald.route('/create', methods=["POST", "GET"])
