@@ -9,7 +9,6 @@
 -->
 <div class="container">
 	<h2>Details </h2>
-	
 	<table class="table">
 		<tbody>
 		  <tr>
@@ -36,7 +35,7 @@
 		  {%endif%}
 		  {% if wald.forstung == False %}
 			<td>Geschätzter Wert (aktuell)</td>
-		  	<td>Geschätzter Wert (aktuell): {{ wald.flaeche * 4000 }} Euro</td>
+		  	<td>{{ wald.flaeche * 4000 }} Euro</td>
 	  	  {%endif%}
 
 		</tbody>
