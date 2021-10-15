@@ -9,17 +9,37 @@
 -->
 <div class="container">
 	<h2>Details </h2>
-	<p>Name: {{wald.name}} </p>
-	<p>Fläche in Hektar: {{ wald.flaeche }}</p>
-	<p>Forstung ja/nein: {{ wald.forstung }}</p>
-	<p>Lokation: {{ wald.lokation }}</p>
-	{% if wald.forstung == True %}
-		<p>Geschätzter Wert (aktuell): {{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</p>
-	{%endif%}
-
-	{% if wald.forstung == False %}
-		<p>Geschätzter Wert (aktuell): {{ wald.flaeche * 4000 }} Euro</p>
-	{%endif%}
 	
+	<table class="table">
+		<tbody>
+		  <tr>
+			<td>Name</td>
+			<td>{{ wald.name }}</td>
+		  </tr>
+		  <tr>
+			<td>Fläche (Hektar)</td>
+			<td>{{ wald.flaeche }}</td>
+		  </tr>
+		  <tr>
+			<td>Forstung möglich</td>
+			<td>{{ wald.forstung }}</td>
+		  </tr>
+		  <tr>
+			<td>Lokation</td>
+			<td>{{ wald.lokation }}</td>
+		  </tr>
+		  {% if wald.forstung == True %}
+		  <tr>
+			<td>Geschätzter Wert (aktuell)</td>
+			<td>{{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</td>
+		  </tr>
+		  {%endif%}
+		  {% if wald.forstung == False %}
+			<td>Geschätzter Wert (aktuell)</td>
+		  	<td>Geschätzter Wert (aktuell): {{ wald.flaeche * 4000 }} Euro</td>
+	  	  {%endif%}
+
+		</tbody>
+	  </table>
 </div>
 {% endblock %}
