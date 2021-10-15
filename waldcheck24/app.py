@@ -6,6 +6,7 @@ db = SQLAlchemy()
 def create_app():
 	app = Flask('waldcheck24')
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+	app.config['SECRET_KEY'] = 'super secret key'
 
 	db.init_app(app)
 

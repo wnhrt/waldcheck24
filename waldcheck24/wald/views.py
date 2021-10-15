@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from werkzeug.utils import redirect
+from flask import flash
 
 bp_wald = Blueprint('wald', __name__, url_prefix='/wald')
 
@@ -17,6 +19,30 @@ def details(wald_id):
 	# wald = db.get_by_id(wald_id)
 	return render_template('wald/details.html', wald=wald)
 
-@bp_wald.route('/create')
+@bp_wald.route('/create', methods=["POST", "GET"])
 def create():
+	if request.method == "POST":
+			flaeche = request.form.get('flaeche')
+			forstung = request.form.get('forstung')
+			lokation = request.form.get('lokation')
+			name = request.form.get('name')
+			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
+
+			if not flaeche:
+				flash('bitte flache eingeben', 'error')
+
+			if not forstung:
+				flash('bitte forstung eingeben', 'error')
+
+			if not lokation:
+				flash('bitte lokation eingeben', 'error')
+
+			if not name:
+				flash('bitte name eingeben', 'error')
+
+			db.session.add(neuer_wald_eintrag)
+			db.session.commit()
+			return redirect(url_for('wald.overview'))
+
+
 	return render_template('wald/create.html')
