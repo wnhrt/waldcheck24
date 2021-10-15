@@ -10,8 +10,16 @@
 <div class="container">
 	<h2>Details </h2>
 	<p>Name: {{wald.name}} </p>
-	<p>Fläche in qm: {{ wald.flaeche }}</p>
+	<p>Fläche in Hektar: {{ wald.flaeche }}</p>
 	<p>Forstung ja/nein: {{ wald.forstung }}</p>
 	<p>Lokation: {{ wald.lokation }}</p>
+	{% if wald.forstung == True %}
+		<p>Geschätzter Wert (aktuell): {{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</p>
+	{%endif%}
+
+	{% if wald.forstung == False %}
+		<p>Geschätzter Wert (aktuell): {{ wald.flaeche * 4000 }} Euro</p>
+	{%endif%}
+	
 </div>
 {% endblock %}
