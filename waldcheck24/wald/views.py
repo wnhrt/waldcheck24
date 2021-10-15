@@ -16,3 +16,7 @@ def details(wald_id):
 	# TODO
 	# wald = db.get_by_id(wald_id)
 	return render_template('wald/details.html', wald=wald)
+
+@bp_wald.route('/create')
+def overview():
+	return render_template('wald/create.html')
