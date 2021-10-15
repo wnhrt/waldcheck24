@@ -8,8 +8,11 @@ def create_app():
 	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 	db.init_app(app)
-	
+
 	from .frontend import bp_frontend
 	app.register_blueprint(bp_frontend)
+
+	from .database_init import DatabaseFiller
+	DatabaseFiller(db)
 
 	return app
