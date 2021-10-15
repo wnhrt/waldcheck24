@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 
 bp_wald = Blueprint('wald', __name__, url_prefix='/wald')
 
-from waldcheck24 import db
+from waldcheck24.app import db
 from waldcheck24.models import *
 
 @bp_wald.route('/overview')
@@ -18,5 +18,5 @@ def details(wald_id):
 	return render_template('wald/details.html', wald=wald)
 
 @bp_wald.route('/create')
-def overview():
+def create():
 	return render_template('wald/create.html')

@@ -12,4 +12,7 @@ def create_app():
 	from .frontend import bp_frontend
 	app.register_blueprint(bp_frontend)
 
+	from .wald import bp_wald
+	app.register_blueprint(bp_wald, url_prefix='/wald')
+
 	return app
