@@ -27,6 +27,10 @@
 			<td>Lokation</td>
 			<td style="text-align:right">{{ wald.lokation }}</td>
 		  </tr>
+		  <tr>
+			<td>Vorwiegende Baumart</td>
+			<td style="text-align:right"> Fichte </td>
+		  </tr>
 		  {% if wald.forstung == True %}
 		  <tr>
 			<td>Geschätzter Wert (aktuell)</td>
@@ -40,5 +44,8 @@
 
 		</tbody>
 	  </table>
+	  <div class="text-center">
+		  <img src="{{ url_for('static', filename='images/pichart.png') }}" alt="">
+	  </div>
 </div>
 {% endblock %}
