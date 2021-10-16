@@ -10,7 +10,12 @@ from waldcheck24.models import *
 @bp_wald.route('/overview')
 def overview():
 	waelder = Wald.query.all()
-	return render_template('wald/overview.html', waelder=waelder)
+	flaeche = 0
+	summe = 0
+	for wald in waelder:
+		flaeche += wald.flaeche
+		summe += (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1)
+	return render_template('wald/overview.html', waelder=waelder, summe=summe, flaeche=flaeche)
 
 @bp_wald.route('/<int:wald_id>')
 def details(wald_id):
@@ -42,7 +47,7 @@ def create():
 			if not name:
 				name = 'failed'
 				flash('bitte name eingeben', 'error')
-			
+
 
 
 			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
