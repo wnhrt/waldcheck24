@@ -13,29 +13,29 @@
 		<tbody>
 		  <tr>
 			<td>Name</td>
-			<td>{{ wald.name }}</td>
+			<td style="text-align:right">{{ wald.name }}</td>
 		  </tr>
 		  <tr>
 			<td>Fläche (Hektar)</td>
-			<td>{{ wald.flaeche }}</td>
+			<td style="text-align:right">{{ wald.flaeche }}</td>
 		  </tr>
 		  <tr>
 			<td>Forstung möglich</td>
-			<td>{{ wald.forstung }}</td>
+			<td style="text-align:right">{{ wald.forstung }}</td>
 		  </tr>
 		  <tr>
 			<td>Lokation</td>
-			<td>{{ wald.lokation }}</td>
+			<td style="text-align:right">{{ wald.lokation }}</td>
 		  </tr>
 		  {% if wald.forstung == True %}
 		  <tr>
 			<td>Geschätzter Wert (aktuell)</td>
-			<td>{{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</td>
+			<td style="text-align:right">{{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</td>
 		  </tr>
 		  {%endif%}
 		  {% if wald.forstung == False %}
 			<td>Geschätzter Wert (aktuell)</td>
-		  	<td>{{ wald.flaeche * 4000 }} Euro</td>
+		  	<td style="text-align:right">{{ wald.flaeche * 4000 }} Euro</td>
 	  	  {%endif%}
 
 		</tbody>
