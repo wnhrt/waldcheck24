@@ -48,6 +48,7 @@ def create():
 			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
 			db.session.add(neuer_wald_eintrag)
 			db.session.commit()
+			flash("Wald angelegt!", "success")
 			return redirect(url_for('wald.overview'))
 
 
