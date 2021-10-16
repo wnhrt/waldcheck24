@@ -32,24 +32,6 @@ def create():
 			lokation = str(request.form.get('lokation'))
 			name = request.form.get('name')
 
-			if not flaeche:
-				flaeche = 99
-				flash('bitte flache eingeben', 'error')
-
-			if not forstung:
-				forstung = True
-				flash('bitte forstung eingeben', 'error')
-
-			if not lokation:
-				lokation = 'xyz'
-				flash('bitte lokation eingeben', 'error')
-
-			if not name:
-				name = 'failed'
-				flash('bitte name eingeben', 'error')
-
-
-
 			neuer_wald_eintrag = Wald(flaeche=flaeche, forstung=forstung, lokation=lokation, name=name)
 			db.session.add(neuer_wald_eintrag)
 			db.session.commit()
