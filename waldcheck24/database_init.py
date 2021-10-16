@@ -11,13 +11,19 @@ class DatabaseFiller:
 		self.init_wald(db)
 
 	def init_wald(self, db):
-		for x in range(5):
-			wald = Wald()
-			wald.name = self.faker.name()
-			wald.flaeche = 50
-			wald.lokation = 'abc'
-			wald.forstung = True
-			db.session.add(wald)
+		wald = Wald()
+		wald.name = 'Hölzlers Tobel'
+		wald.flaeche = 6
+		wald.lokation = '342'
+		wald.forstung = False
+		db.session.add(wald)
+
+		wald = Wald()
+		wald.name = 'Mein Wald'
+		wald.flaeche = 10.7
+		wald.lokation = '908'
+		wald.forstung = True
+		db.session.add(wald)
 		db.session.commit()
 
 

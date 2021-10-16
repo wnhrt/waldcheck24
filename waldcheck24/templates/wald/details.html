@@ -8,10 +8,37 @@
 	Details von Variable 'wald' auflisten
 -->
 <div class="container">
-	<h2>Details </h2>
-	<p>Name: {{wald.name}} </p>
-	<p>Fläche in qm: {{ wald.flaeche }}</p>
-	<p>Forstung ja/nein: {{ wald.forstung }}</p>
-	<p>Lokation: {{ wald.lokation }}</p>
+	<h2 class="m-3 text-center">Details </h2>
+	<table class="table">
+		<tbody>
+		  <tr>
+			<td>Name</td>
+			<td style="text-align:right">{{ wald.name }}</td>
+		  </tr>
+		  <tr>
+			<td>Fläche (Hektar)</td>
+			<td style="text-align:right">{{ wald.flaeche }}</td>
+		  </tr>
+		  <tr>
+			<td>Forstung möglich</td>
+			<td style="text-align:right">{{ wald.forstung }}</td>
+		  </tr>
+		  <tr>
+			<td>Lokation</td>
+			<td style="text-align:right">{{ wald.lokation }}</td>
+		  </tr>
+		  {% if wald.forstung == True %}
+		  <tr>
+			<td>Geschätzter Wert (aktuell)</td>
+			<td style="text-align:right">{{ (wald.flaeche * 4000) + ((wald.flaeche * 4000) * 0.1) }} Euro</td>
+		  </tr>
+		  {%endif%}
+		  {% if wald.forstung == False %}
+			<td>Geschätzter Wert (aktuell)</td>
+		  	<td style="text-align:right">{{ wald.flaeche * 4000 }} Euro</td>
+	  	  {%endif%}
+
+		</tbody>
+	  </table>
 </div>
 {% endblock %}

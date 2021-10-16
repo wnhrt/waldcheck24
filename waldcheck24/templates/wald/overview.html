@@ -3,9 +3,43 @@
 {% block title %}Überblick{% endblock %}
 
 {% block content %}
+<div class="container">
+<h2 class="m-3 text-center">Gesamtstatistik</h2>
+
+<h5 class="text-center"></h5>
+<div class="row justify-content-center">
+	<div class="col-auto">
+		<table class="table table-responsive">
+			<tbody>
+				<tr>
+				<td>Summe</td>
+				<td style="text-align:right">{{ summe }} €</td>
+				</tr>
+				<tr>
+				<td>Fläche</td>
+				<td style="text-align:right">{{ flaeche }} ha</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<h2 class="m-3 text-center">Übersicht</h2>
+<table class="table">
 {% for wald in waelder %}
-	<p class="text-center">
-		<a href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
-	</p>
+	<tr>
+		<td class="text-center">
+			<a class="btn btn-secondary btn-lg" style="width:35%" href="{{ url_for('wald.details', wald_id=wald.wald_id) }}">{{ wald.name }}</a>
+		</td>
+	</tr>
 {% endfor %}
+	<tr>
+		<td class="text-center">
+			<a class="btn btn-primary btn-lg" style="width:10%" href="{{ url_for('wald.create') }}"><strong>+</strong></a>
+		</td>
+	</tr>
+</table>
+
+</div>
 {% endblock %}
